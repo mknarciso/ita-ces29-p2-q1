@@ -1,7 +1,7 @@
 package web;
 
 public class WebStore {
-	private boolean isSimple;
+	private boolean isSimple, hasRecomendation, advancedDelivery;
 	private Customer user;
 	private String title;
 	public WebStore(Customer user) {
@@ -10,10 +10,17 @@ public class WebStore {
 	public void openSearch(String name){
 		if(!user.isExperiencedWithComputers()){
 			System.out.println("Very simple search interface");
+			hasRecomendation = false;
 			setSimple(true);
 		} else {
+			hasRecomendation = true;
 			setSimple(false);
 			System.out.println("Complex search interface");
+		}
+		if(user.isSailor()){
+			advancedDelivery = false;
+		} else {
+			advancedDelivery = true;
 		}
 		title = name;
 	}
@@ -25,6 +32,14 @@ public class WebStore {
 	}
 	public Book fetchResult() {
 		return new Book(title);
+	}
+	public Boolean hasRecomendations(String bookName) {
+		if (hasRecomendation&&title.equals(bookName))
+			return true;
+		return false;
+	}
+	public Boolean hasAdvancedDelivery() {
+		return advancedDelivery;
 	}
 	
 }
