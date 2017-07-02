@@ -9,6 +9,6 @@ import cucumber.api.junit.*;
 features = "src/test/resources/features/",
 dryRun = false,
 glue = "steps" )
-public class Search {
+public class SearchTest {
 
 }
