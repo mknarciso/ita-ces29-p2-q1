@@ -1,6 +1,7 @@
 package web;
 
 public class Customer {
+	private int id;
 	private boolean isSailor,experiencedWithComputers,buysALot;
 	public static enum type{HardCore,Novice,NonSailing}
 	public Customer(type level) {
@@ -30,5 +31,11 @@ public class Customer {
 	}
 	public boolean buysALot() {
 		return buysALot;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }
